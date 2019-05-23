@@ -102,6 +102,7 @@ function check_pc_status(client_servers::Array{String}, test_url::String)
 
     csvr_chnl = RemoteChannel(()->Channel(100), 1)
     final_csvr_chnl = RemoteChannel(()->Channel(100), 1)
+
     for i in client_servers
         put!(csvr_chnl, i)
     end
@@ -185,6 +186,12 @@ final_csvr_chnl = check_pc_status(client_servers, test_url)
 # while isready(final_csvr_chnl)
 #     println(take!(final_csvr_chnl))
 # end
+
+while isready(csvr_chnl)
+    println(take!(csvr_chnl))
+end
+
+
 error_path = raw"\\unicorn3\CRI3\DeepSelect_Refresh\SelectRegressors_Code\Error_reports"
 urls = ["http://iHPC:8920/variable_selection"]
 
