@@ -9,8 +9,6 @@ push!(pyimport("sys")["path"], raw"\\unicorn3\CRI3\DeepSelect_Refresh\Variable_S
 @pyimport Email_Alert
 
 ### client_servers cluster
-# global client_servers = [
-# "crisifi-2hyt"]
 global client_servers = [
 "CRI-HPC02",
 "CRI-HPC03",
